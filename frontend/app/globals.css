@@ -1,0 +1,82 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --uh-red: #e10600;
+  --uh-red-deep: #b60000;
+}
+
+html,
+body {
+  background-color: #060606;
+  color: #f5f5f5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Cinematic φόντο: σκούρο με διακριτικές κόκκινες λάμψεις */
+.uh-bg {
+  background:
+    radial-gradient(60% 60% at 50% -10%, rgba(225, 6, 0, 0.18), transparent 70%),
+    radial-gradient(40% 40% at 100% 100%, rgba(225, 6, 0, 0.08), transparent 70%),
+    #060606;
+}
+
+/* Λεπτό κόκκινο scrollbar */
+.uh-scroll::-webkit-scrollbar {
+  width: 8px;
+}
+.uh-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+.uh-scroll::-webkit-scrollbar-thumb {
+  background: rgba(225, 6, 0, 0.5);
+  border-radius: 999px;
+}
+.uh-scroll::-webkit-scrollbar-thumb:hover {
+  background: var(--uh-red);
+}
+
+/* Animations */
+@keyframes uh-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-fade-up {
+  animation: uh-fade-up 0.35s ease-out both;
+}
+
+@keyframes uh-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.animate-pop {
+  animation: uh-pop 0.2s ease-out both;
+}
+
+@keyframes uh-pulse-dot {
+  0%,
+  100% {
+    opacity: 0.4;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.animate-dot {
+  animation: uh-pulse-dot 1s ease-in-out infinite;
+}

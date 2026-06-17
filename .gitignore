@@ -1,0 +1,41 @@
+# ---- Python (backend) ----
+backend/.venv/
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+
+# ---- Secrets ----
+.env
+.env.local
+*.env
+!*.env.example
+
+# ---- Vector store / generated data ----
+backend/chroma_store/
+chroma_store/
+
+# ---- Voice samples & generated media ----
+backend/voice_samples/
+backend/failed_ingest.txt
+
+# ---- Node / Next.js (frontend) ----
+node_modules/
+frontend/.next/
+frontend/out/
+frontend/build/
+.next/
+*.tsbuildinfo
+next-env.d.ts
+
+# ---- Logs ----
+*.log
+npm-debug.log*
+
+# ---- OS / editor ----
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

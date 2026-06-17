@@ -1,0 +1,26 @@
+# ---- Web framework ----
+fastapi==0.111.0
+uvicorn[standard]==0.30.1
+pydantic==2.7.4
+python-multipart==0.0.9
+
+# ---- Vector database ----
+chromadb==0.5.3
+
+# ---- Local AI: embeddings + LLM ----
+# Σημ.: torch 2.2.2 = η τελευταία έκδοση με wheels για Intel Mac (x86_64).
+# Σε Apple Silicon / Linux μπορείς να ανεβάσεις το pin (π.χ. torch>=2.3).
+sentence-transformers==3.0.1
+transformers==4.42.3
+torch==2.2.2
+accelerate==0.31.0
+
+# ---- Utilities ----
+requests==2.32.3
+python-dotenv==1.0.1
+
+# ---- YouTube transcripts (για το youtube_ingest.py) ----
+youtube-transcript-api>=1.2,<2
+
+# ---- Voice sample prep (για το prepare_voice_sample.py· χρειάζεται και ffmpeg) ----
+yt-dlp>=2024.0
