@@ -1,0 +1,32 @@
+services:
+  backend:
+    build: ./backend
+    restart: unless-stopped
+    env_file:
+      - ./backend/.env
+    environment:
+      # Κρατάμε το HF cache σε volume ώστε να μην ξανακατεβαίνει το embedding model
+      HF_HOME: /data/hf
+      UH_CHROMA_DIR: /data/chroma_store
+    volumes:
+      - uh_data:/data
+    expose:
+      - "8000"          # μόνο internal· το Caddy κάνει το proxy
+
+  caddy:
+    image: caddy:2
+    restart: unless-stopped
+    depends_on:
+      - backend
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+
+volumes:
+  uh_data:
+  caddy_data:
+  caddy_config:

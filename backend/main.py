@@ -145,12 +145,17 @@ app = FastAPI(title="uh.ai", version="1.0.0", lifespan=lifespan)
 #  CORS — επιτρέπουμε σύνδεση από το Next.js frontend
 # --------------------------------------------------------------------------- #
 
+# Επιτρεπόμενα origins: localhost για dev + ό,τι δηλώσεις στο UH_ALLOWED_ORIGINS
+# (comma-separated), π.χ. "https://uh-ai.vercel.app,https://www.uh.ai"
+_default_origins = ["http://localhost:3000", "http://127.0.0.1:3000"]
+_extra_origins = [
+    o.strip() for o in os.getenv("UH_ALLOWED_ORIGINS", "").split(",") if o.strip()
+]
+ALLOWED_ORIGINS = _default_origins + _extra_origins
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        "http://localhost:3000",
-        "http://127.0.0.1:3000",
-    ],
+    allow_origins=ALLOWED_ORIGINS,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

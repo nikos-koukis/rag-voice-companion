@@ -1,0 +1,5 @@
+# Αντικατέστησε το api.yourdomain.com με το δικό σου subdomain (A record → VPS IP).
+# Το Caddy εκδίδει & ανανεώνει αυτόματα Let's Encrypt TLS — μηδέν χειροκίνητη ρύθμιση.
+api.yourdomain.com {
+    reverse_proxy backend:8000
+}

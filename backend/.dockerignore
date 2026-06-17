@@ -1,0 +1,8 @@
+.venv/
+__pycache__/
+*.pyc
+chroma_store/
+voice_samples/
+failed_ingest.txt
+.env
+*.log
